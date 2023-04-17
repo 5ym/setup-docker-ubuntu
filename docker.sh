@@ -1,8 +1,8 @@
 #!/bin/sh
 
-sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get -y remove docker docker-engine docker.io containerd runc
 sudo apt-get update
-sudo apt-get install \
+sudo apt-get -y install \
     ca-certificates \
     curl \
     gnupg
@@ -14,5 +14,5 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo adduser $USER docker
